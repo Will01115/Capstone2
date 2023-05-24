@@ -15,7 +15,7 @@
   <body>
     <div class="container-fluid">
       <h1>National Parks</h1>
-      <section>
+      <section onchange="checkBtn()">
         <input type="radio" name="nationalPark" id="ByLocation" value="1" />
         <label for="ByLocation">By Location</label>
         <input type="radio" name="nationalPark" id="ByType" value="2" />
@@ -26,11 +26,13 @@
         name="location"
         id="location-list"
         onchange="handleLocationChange()"
+        style="display: none"
       ></select>
       <select
         name="parktype"
         id="parktype-list"
         onchange="handleParkTypeChange()"
+        style="display: none"
       ></select>
       <table class="table table-striped">
         <thead>

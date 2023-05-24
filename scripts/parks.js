@@ -21,10 +21,10 @@ function loadParkTypeList() {
   let option = new Option("Select...", "");
   parkTypeList.appendChild(option);
 
-  for (const parkType of parkTypesArray) {
+  for (const park of parkTypesArray) {
     let option = document.createElement("option");
-    option.value = parkType;
-    option.innerText = parkType;
+    option.value = park;
+    option.innerText = park;
     parkTypeList.appendChild(option);
   }
 }
@@ -63,12 +63,16 @@ function loadParksTable(location) {
 }
 function loadParksTypeTable(parksType) {
   clearTable();
+  if (parksType =="") {
+    return
+  }
   const filteredParks = nationalParksArray.filter((park) =>
     park.LocationName.includes(parksType)
   );
   for (const park of filteredParks) {
     buildParkRow(parksTblBody, park);
   }
+
 }
 function clearTable() {
   parksTblBody.innerHTML = "";
@@ -84,19 +88,20 @@ function handleParkTypeChange() {
   loadParksTypeTable(parkType);
 }
 function checkBtn() {
-  let selectPark = document.querySelector("input[name='nationalPark']:checked");
-  if (parseInt(selectPark.value) == 1) {
+  let selectPark = document.querySelector(
+    "input[name='nationalPark']:checked"
+  ).value;
+  if (selectPark == 1) {
     loadLocationList();
     locationList.style.display = "block";
     parkTypeList.style.display = "none";
   }
-  if (parseInt(selectPark.value) == 2) {
+  if (selectPark == 2) {
     loadParkTypeList();
     parkTypeList.style.display = "block";
     locationList.style.display = "none";
   }
 }
-checkBtn();
 
 // function filterListByState(state) {
 //   nationalParksArray.filter(function (park) {
