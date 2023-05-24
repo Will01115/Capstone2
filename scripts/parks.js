@@ -63,8 +63,8 @@ function loadParksTable(location) {
 }
 function loadParksTypeTable(parksType) {
   clearTable();
-  if (parksType =="") {
-    return
+  if (parksType == "") {
+    return;
   }
   const filteredParks = nationalParksArray.filter((park) =>
     park.LocationName.includes(parksType)
@@ -72,7 +72,6 @@ function loadParksTypeTable(parksType) {
   for (const park of filteredParks) {
     buildParkRow(parksTblBody, park);
   }
-
 }
 function clearTable() {
   parksTblBody.innerHTML = "";
