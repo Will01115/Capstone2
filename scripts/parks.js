@@ -3,7 +3,7 @@ const locationList = document.querySelector("#location-list");
 const parksTblBody = document.querySelector("#parks-tbl-body");
 
 function loadLocationList() {
-  let option = new Option("Select...", ""); 
+  let option = new Option("Select...", "");
   locationList.appendChild(option);
 
   for (const location of locationsArray) {
@@ -73,6 +73,7 @@ function loadParksTypeTable(parksType) {
     buildParkRow(parksTblBody, park);
   }
 }
+
 function clearTable() {
   parksTblBody.innerHTML = "";
 }
